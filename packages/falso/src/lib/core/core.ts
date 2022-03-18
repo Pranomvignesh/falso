@@ -43,5 +43,5 @@ export function getRandomInRange({
   precision = 1,
 }: RandomInRangeOptions = {}) {
   const randNum = Number((random() * (max - min) + min).toFixed(fraction));
-  return Math.floor(randNum / precision) % precision;
+  return Math.floor(randNum / precision) * precision;
 }
