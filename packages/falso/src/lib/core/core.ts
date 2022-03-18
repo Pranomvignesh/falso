@@ -33,12 +33,15 @@ export interface RandomInRangeOptions {
   min?: number;
   max?: number;
   fraction?: number;
+  precision?: number;
 }
 
 export function getRandomInRange({
   min = 1.0,
   max = 9999.99,
   fraction = 0,
+  precision = 1,
 }: RandomInRangeOptions = {}) {
-  return Number((random() * (max - min) + min).toFixed(fraction));
+  const randNum = Number((random() * (max - min) + min).toFixed(fraction));
+  return Math.floor(randNum / precision) % precision;
 }
